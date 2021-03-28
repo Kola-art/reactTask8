@@ -1,0 +1,11 @@
+.menu{
+    width: 500px;
+    background-color:aquamarine;
+    margin: 25px auto 0 auto;
+}
+.menuitem{
+    list-style-type: none;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+}

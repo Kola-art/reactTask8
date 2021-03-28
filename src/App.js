@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { MenuNav } from './components/menu';
+import { ToDoComponent } from './components/todo';
+import { FormComponent } from './components/form';
+import { Home } from './components/home';
+import { renderRoutes } from "react-router-config";
+import { routes } from './routes';
 
+  
+  
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      <Router>
+        <div className="config">
+          <p>Made by react-router-config</p>
+            {renderRoutes(routes)}
+        </div>
+        <div className="itemlist">
+          <MenuNav />
+          <Switch>
+          <Route path="/" exact={true} component={Home} />
+          <Route path="/form" component={FormComponent} />
+          <Route path="/todo" component={ToDoComponent} />
+          <Route path="/error" render={() => <h1> Ups... Page not found :( </h1> } />
+          <Redirect to="/error" />
+          </Switch>
+        </div>    
+
+      </Router>
+      
     </div>
   );
 }

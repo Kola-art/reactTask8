@@ -1,0 +1,9 @@
+
+.menuitem{
+    list-style-type: none;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
